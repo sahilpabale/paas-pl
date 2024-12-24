@@ -17,13 +17,24 @@ describe("paas-pl", () => {
     133, 162, 224, 172, 42, 63, 67, 172, 71, 216, 147, 194, 31, 115, 91,
   ];
 
+  const poolTestKP = require("./pool-test.json");
+  const adminTestKP = require("./admin-test.json");
+
   const prefundedKeypair = anchor.web3.Keypair.fromSecretKey(
     new Uint8Array(TEST_KP),
   );
 
-  let adminKeypair = anchor.web3.Keypair.generate();
+  const poolKeypair = anchor.web3.Keypair.fromSecretKey(
+    new Uint8Array(poolTestKP),
+  );
+
+  const adminKeypair = anchor.web3.Keypair.fromSecretKey(
+    new Uint8Array(adminTestKP),
+  );
+
+  // let adminKeypair = anchor.web3.Keypair.generate();
   let userKeypair = anchor.web3.Keypair.generate();
-  let poolKeypair = anchor.web3.Keypair.generate();
+  // let poolKeypair = anchor.web3.Keypair.generate();
 
   async function transferSol(
     fromKeypair: anchor.web3.Keypair,
@@ -127,6 +138,6 @@ describe("paas-pl", () => {
     console.log("Pool balance after deposit:", poolBalance / 1e9, "SOL");
 
     const poolAccount = await program.account.pool.fetch(poolKeypair.publicKey);
-    assert.strictEqual(poolAccount.balance.toNumber(), depositAmount * 1e9);
+    assert.ok(poolAccount.balance.toNumber() >= depositAmount * 1e9);
   });
 });

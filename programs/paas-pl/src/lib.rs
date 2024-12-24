@@ -5,7 +5,7 @@ pub use instructions::{deposit::*, pool::*};
 
 pub mod state;
 
-declare_id!("FXrWyNVcCAbeu1voQbAK5qx7ig9KerHb3ztayBsi2ViQ");
+declare_id!("3M6uqv16rUXczDzBApDdnFP6CLvgLbi3TidSWXYxFgX8");
 
 #[program]
 pub mod paas_pl {

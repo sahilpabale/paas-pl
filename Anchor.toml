@@ -5,7 +5,7 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-paas_pl = "FXrWyNVcCAbeu1voQbAK5qx7ig9KerHb3ztayBsi2ViQ"
+paas_pl = "3M6uqv16rUXczDzBApDdnFP6CLvgLbi3TidSWXYxFgX8"
 
 [registry]
 url = "https://api.apr.dev"
